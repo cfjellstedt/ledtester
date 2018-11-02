@@ -46,10 +46,10 @@ restService.listen(process.env.PORT || 8000, function() {
 function callThingApiON () {
     return new Promise((resolve, reject) => {
     // Create the path for the HTTP request to get the weather
-    let path = '/update?api_key=116UAXMQP1O8EYZ3&field1=1';
+    //let path = '/update?api_key=116UAXMQP1O8EYZ3&field1=1';
     // Make the HTTP request
 	
-    https.get({host: host, path: path}, (res) => {
+    https.get('https://api.thingspeak.com/update?api_key=116UAXMQP1O8EYZ3&field1=1', (res) => {
       let body = ''; // var to store the response chunks
       res.on('data', (d) => { body += d; }); // store each response chunk
       res.on('end', () => {
@@ -74,10 +74,10 @@ function callThingApiON () {
 function callThingApiOFF () {
     return new Promise((resolve, reject) => {
     // Create the path for the HTTP request to get the weather
-    let path = '/update?api_key=116UAXMQP1O8EYZ3&field1=0';
+    //let path = '/update?api_key=116UAXMQP1O8EYZ3&field1=0';
     // Make the HTTP request
 	
-    https.get({host: host, path: path}, (res) => {
+    https.get('https://api.thingspeak.com/update?api_key=116UAXMQP1O8EYZ3&field1=0', (res) => {
       let body = ''; // var to store the response chunks
       res.on('data', (d) => { body += d; }); // store each response chunk
       res.on('end', () => {
